@@ -88,6 +88,17 @@ if (isset($_REQUEST["rankctx"]) && $prow && check_post()) {
     PaperActions::rankContext($prow);
     loadRows();
 }
+if (isset($_REQUEST["status"])) {
+    if ($prow && ($pj = PaperStatus::row_to_json($prow, $Me, array()))) {
+        $pj->ok = true;
+        $Conf->ajaxExit($pj);
+    } else if ($prow)
+        $Conf->ajaxExit(array("ok" => false, "errdesc" => "permission",
+                              "error" => "You don’t have permission to view that paper."));
+    else
+        $Conf->ajaxExit(array("ok" => false, "errdesc" => "nonexistent",
+                              "error" => "That paper doesn’t exist."));
+}
 
 
 // check paper action

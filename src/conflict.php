@@ -19,7 +19,7 @@ class Conflict {
                                6 => "other",
                                CONFLICT_CHAIRMARK => "confirmed",
                                CONFLICT_AUTHOR => "author",
-                               CONFLICT_CONTACTAUTHOR => "author");
+                               CONFLICT_CONTACTAUTHOR => "contact");
 
     public $value;
 
